@@ -1,14 +1,14 @@
 package net.poeticswam.minusmod.block;
 
 import com.mojang.serialization.MapCodec;
-import net.fabricmc.fabric.api.itemgroup.v1.ItemGroupEvents;
+import net.fabricmc.fabric.api.creativetab.v1.CreativeModeTabEvents;
 import net.minecraft.world.level.block.*;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.resources.ResourceKey;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraft.world.item.Item;
@@ -54,7 +54,7 @@ public class ModBlocks {
 
 
     private static Block registerBlock(String name, BlockBehaviour.Properties settings) {
-        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(MinusMod.MOD_ID, name);
+        Identifier id = Identifier.fromNamespaceAndPath(MinusMod.MOD_ID, name);
         ResourceKey<Block> blockKey = ResourceKey.create(Registries.BLOCK, id);
 
         Block block = new Block(settings.setId(blockKey));
@@ -64,7 +64,7 @@ public class ModBlocks {
     }
 
     private static Block registerCustomBlock(String name, BlockBehaviour.Properties settings, Function<BlockBehaviour.Properties, Block> factory) {
-        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(MinusMod.MOD_ID, name);
+        Identifier id = Identifier.fromNamespaceAndPath(MinusMod.MOD_ID, name);
         ResourceKey<Block> blockKey = ResourceKey.create(Registries.BLOCK, id);
 
         Block block = factory.apply(settings.setId(blockKey));
@@ -74,7 +74,7 @@ public class ModBlocks {
     }
 
     private static Block registerFallingBlock(String name, BlockBehaviour.Properties settings) {
-        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(MinusMod.MOD_ID, name);
+        Identifier id = Identifier.fromNamespaceAndPath(MinusMod.MOD_ID, name);
         ResourceKey<Block> blockKey = ResourceKey.create(Registries.BLOCK, id);
 
         FallingBlock block = new FallingBlock(settings.setId(blockKey)) {
@@ -95,7 +95,7 @@ public class ModBlocks {
 
 
     private static void registerBlockItem(String name, Block block) {
-        ResourceLocation id = ResourceLocation.fromNamespaceAndPath(MinusMod.MOD_ID, name);
+        Identifier id = Identifier.fromNamespaceAndPath(MinusMod.MOD_ID, name);
         ResourceKey<Item> itemKey = ResourceKey.create(Registries.ITEM, id);
 
         BlockItem item = new BlockItem(
@@ -107,12 +107,12 @@ public class ModBlocks {
 
 
     public static void registerModBlocks() {
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.NATURAL_BLOCKS).register(entries -> {
             entries.accept(SUGAR_BLOCK);
             entries.accept(EXAMPLE_BLOCK);
         });
 
-        ItemGroupEvents.modifyEntriesEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
+        CreativeModeTabEvents.modifyOutputEvent(CreativeModeTabs.FUNCTIONAL_BLOCKS).register(entries -> {
             entries.accept(PRESENT_LAPIS_LAZULI);
             entries.accept(PRESENT_EMERALD);
             entries.accept(PRESENT_DIAMOND);

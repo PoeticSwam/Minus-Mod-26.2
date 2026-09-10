@@ -3,7 +3,7 @@ package net.poeticswam.minusmod.potion;
 import net.minecraft.core.Holder;
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.item.alchemy.Potion;
 import net.poeticswam.minusmod.MinusMod;
@@ -34,7 +34,7 @@ public class ModPotions {
 
 
     private static Holder<Potion> registerPotion(String name, Potion potion) {
-        return Registry.registerForHolder(BuiltInRegistries.POTION, ResourceLocation.fromNamespaceAndPath(MinusMod.MOD_ID, name), potion);
+        return Registry.registerForHolder(BuiltInRegistries.POTION, Identifier.fromNamespaceAndPath(MinusMod.MOD_ID, name), potion);
     }
 
     public static void registerPotions() {

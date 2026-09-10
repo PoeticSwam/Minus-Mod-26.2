@@ -1,7 +1,7 @@
 package net.poeticswam.minusmod.util;
 
 import net.fabricmc.fabric.api.loot.v3.LootTableEvents;
-import net.minecraft.resources.ResourceLocation;
+import net.minecraft.resources.Identifier;
 import net.minecraft.world.level.storage.loot.LootPool;
 import net.minecraft.world.level.storage.loot.entries.LootItem;
 import net.minecraft.world.level.storage.loot.functions.SetItemCountFunction;
@@ -12,12 +12,12 @@ import net.poeticswam.minusmod.item.ModItems;
 
 
 public class ModLootTableModifiers {
-    private static final ResourceLocation SPIDER_ID
-            = ResourceLocation.fromNamespaceAndPath("minecraft", "entities/spider");
+    private static final Identifier SPIDER_ID
+            = Identifier.fromNamespaceAndPath("minecraft", "entities/spider");
 
     public static void modifyLootTables() {
         LootTableEvents.MODIFY.register((key, tableBuilder, source, registry) -> {
-            if(SPIDER_ID.equals(key.location())) {
+            if(SPIDER_ID.equals(key.identifier())) {
                 LootPool.Builder poolBuilder = LootPool.lootPool()
                         .setRolls(ConstantValue.exactly(1))
                         .when(LootItemRandomChanceCondition.randomChance(0.25f))

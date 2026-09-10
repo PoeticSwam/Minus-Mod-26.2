@@ -2,7 +2,7 @@ package net.poeticswam.minusmod;
 
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.entity.event.v1.ServerLivingEntityEvents; // Added Import
-import net.fabricmc.fabric.api.registry.FabricBrewingRecipeRegistryBuilder;
+import net.fabricmc.fabric.api.registry.FabricPotionBrewingBuilder;
 import net.poeticswam.minusmod.block.ModBlocks;
 import net.poeticswam.minusmod.effect.ModEffects;
 import net.poeticswam.minusmod.item.ModItems;
@@ -53,13 +53,13 @@ public class MinusMod implements ModInitializer {
         });
 
 
-        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.addMix(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.MONSTER_MASTER_COLOGNE));
-        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.addMix(Potions.LEAPING, ModItems.FERMENTED_GLOWSTONE_DUST, ModPotions.ROCKET_POTION));
-        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.addMix(Potions.THICK, Items.CLAY_BALL, ModPotions.STONESKIN_POTION_1));
-        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.addMix(ModPotions.STONESKIN_POTION_1, Items.GLOWSTONE_DUST, ModPotions.STONESKIN_POTION_2));
-        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.addMix(ModPotions.STONESKIN_POTION_2, Items.GLOWSTONE_DUST, ModPotions.STONESKIN_POTION_3));
-        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.addMix(ModPotions.STONESKIN_POTION_3, ModItems.FERMENTED_GLOWSTONE_DUST, ModPotions.STONESKIN_POTION_4));
-        FabricBrewingRecipeRegistryBuilder.BUILD.register(builder -> builder.addMix(ModPotions.STONESKIN_POTION_4, ModItems.FERMENTED_GLOWSTONE_DUST, ModPotions.STONESKIN_POTION_5));
+        FabricPotionBrewingBuilder.BUILD.register(builder -> builder.addMix(Potions.AWKWARD, Items.SLIME_BALL, ModPotions.MONSTER_MASTER_COLOGNE));
+        FabricPotionBrewingBuilder.BUILD.register(builder -> builder.addMix(Potions.LEAPING, ModItems.FERMENTED_GLOWSTONE_DUST, ModPotions.ROCKET_POTION));
+        FabricPotionBrewingBuilder.BUILD.register(builder -> builder.addMix(Potions.THICK, Items.CLAY_BALL, ModPotions.STONESKIN_POTION_1));
+        FabricPotionBrewingBuilder.BUILD.register(builder -> builder.addMix(ModPotions.STONESKIN_POTION_1, Items.GLOWSTONE_DUST, ModPotions.STONESKIN_POTION_2));
+        FabricPotionBrewingBuilder.BUILD.register(builder -> builder.addMix(ModPotions.STONESKIN_POTION_2, Items.GLOWSTONE_DUST, ModPotions.STONESKIN_POTION_3));
+        FabricPotionBrewingBuilder.BUILD.register(builder -> builder.addMix(ModPotions.STONESKIN_POTION_3, ModItems.FERMENTED_GLOWSTONE_DUST, ModPotions.STONESKIN_POTION_4));
+        FabricPotionBrewingBuilder.BUILD.register(builder -> builder.addMix(ModPotions.STONESKIN_POTION_4, ModItems.FERMENTED_GLOWSTONE_DUST, ModPotions.STONESKIN_POTION_5));
         FabricLoader.getInstance().getModContainer(MOD_ID).ifPresent(mod -> ServerLifecycleEvents.SERVER_STARTING.register(server -> LOGGER.info("MinusMod dev data pack should now be loaded")));
     }
 }
