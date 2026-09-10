@@ -1,0 +1,14 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "food",
+  "group": "ice_cream",
+  "ingredients": [
+    "minecraft:snowball",
+    "minecraft:stick",
+    "minecraft:cookie"
+],
+  "result": {
+    "count": 1,
+    "id": "minusmod:ice_cream_with_cookie_pieces"
+  }
+}

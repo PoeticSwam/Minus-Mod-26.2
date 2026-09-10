@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "food",
+  "group": "grass_stew",
+  "ingredients": [
+    "minecraft:bowl",
+    "minecraft:short_grass",
+    "minecraft:short_grass",
+    "minecraft:short_grass"
+],
+  "result": {
+    "count": 1,
+    "id": "minusmod:grass_stew"
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "food",
+  "ingredients": [
+    "minecraft:bowl",
+    "minecraft:coarse_dirt"
+],
+  "result": {
+    "count": 1,
+    "id": "minusmod:coarse_dirt_stew"
+  }
+}

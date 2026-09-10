@@ -1,0 +1,12 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "food",
+  "ingredients": [
+    "minecraft:bowl",
+    "minecraft:mud"
+],
+  "result": {
+    "count": 1,
+    "id": "minusmod:mud_soup"
+  }
+}
